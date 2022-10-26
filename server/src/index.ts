@@ -31,9 +31,7 @@ app.post("/message", (req, res) => {
   const usersWithOnline = usersOnlineStatus();
   Object.values(users).forEach((res: any) => {
     if (res) {
-      res.res
-        .status(200)
-        .json({ messages: [req.body], users: usersWithOnline });
+      res.status(200).json({ messages: [req.body], users: usersWithOnline });
     }
   });
 });
