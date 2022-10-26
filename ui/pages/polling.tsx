@@ -13,7 +13,10 @@ const ERROR_RECONNECT_SPEED = 5000;
 const Polling: NextPage = () => {
   const [username, setUsername] = useState<string>("");
   const [message, setMessage] = useState<string>("");
-  const [{ messages, users }, setChatState] = useState({
+  const [{ messages, users }, setChatState] = useState<{
+    messages: Array<{ username: string; message: string }>;
+    users: Array<{ username: string; online: boolean }>;
+  }>({
     messages: [],
     users: [],
   });
@@ -87,7 +90,6 @@ const Polling: NextPage = () => {
     };
   }, [username]);
 
-  console.log({ username, message, messages });
   return (
     <>
       <Head>
